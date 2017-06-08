@@ -26,15 +26,86 @@
 
     // Some and Every Checks
     // Array.prototype.some() // is at least one person 19 or older?
+    const isAdult = people.some(person => {
+      const currentYear = (new Date()).getFullYear();
+      if(currentYear - person.year >= 19) {
+        return true;
+      }
+    })
+    console.log({isAdult})
+
+    //OR
+
+    const isAdultTwo = people.some(person => {
+      const currentYear = (new Date()).getFullYear();
+      return currentYear - person.year >= 19;
+    })
+    console.log({isAdultTwo})
+
+    //OR
+
+    const isAdultThree = people.some(person => ((new Date()).
+      getFullYear()) >= 19);
+    console.log({isAdultThree})
+
     // Array.prototype.every() // is everyone 19 or older?
+
+    const everyAdult = people.every(person => {
+      const currentYear = (new Date()).getFullYear();
+      return currentYear - person.year >= 19;
+    })
+    console.log({everyAdult})
+
+    //OR
+
+    const everyAdultTwo = people.every(person => ((new Date()).
+      getFullYear()) - person.year >= 19);
+    console.log({everyAdultTwo})
 
     // Array.prototype.find()
     // Find is like filter, but instead returns just the one you are looking for
     // find the comment with the ID of 823423
 
+    const comment = comments.find(function(comment) {
+      if(comment.id === 823423) {
+        return true;
+      }
+    });
+
+    console.log(comment);
+
+    //OR
+
+    const commentTwo = comments.find(comment => comment.id === 823423);
+    console.log(commentTwo);
+
     // Array.prototype.findIndex()
     // Find the comment with this ID
+
+    const index = comments.findIndex(function(comment) {
+      return comment.id === 823423;
+    })
+    console.log(index);
+
+
+    //OR
+
+    const indexTwo = comments.findIndex(comment => comment.id === 823423 );
+    console.log(indexTwo);
     // delete the comment with the ID of 823423
+
+    comments.splice(index, 1);
+    console.table(comments);
+
+    //OR (comment-out splice method above to test.)
+
+    newComments = [
+      ...comments.slice(0,indexTwo),
+      ...comments.slice(indexTwo + 1)
+    ]
+    console.table(newComments)
+
+
 
   </script>
 </body>
