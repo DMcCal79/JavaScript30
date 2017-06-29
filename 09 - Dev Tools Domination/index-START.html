@@ -18,28 +18,59 @@
     }
 
     // Regular
-
+    console.log('Hello');
     // Interpolated
+    console.log('Hello I am %s.', 'Optimus Prime');
 
     // Styled
-
+    console.log('%c I am glad the weekend is here!', 'font-size:40px; color:blue;');
     // warning!
+    console.warn('OOPS!');
 
     // Error :|
-
+    console.error('NOOOOOO!');
     // Info
-
+    console.info('Pizza is awesome');
     // Testing
+    console.assert(5 * 5 === 26, 'Wrong! The correct answer is 25');
+
+    const p = document.querySelector('p');
+    console.assert(p.classList.contains('pie'), 'Class not found!')
 
     // clearing
+    // console.clear();
 
     // Viewing DOM Elements
+    console.log(p);
+    console.dir(p);
 
     // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}.`);
+      console.log(`${dog.name} is ${dog.age} years old.`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old.`);
+      console.groupEnd(`${dog.name}`);
+    })
 
     // counting
+    console.count('cake');
+    console.count('cake');
+    console.count('cake');
+    console.count('pie');
+    console.count('cake');
+    console.count('pie');
 
     // timing
+    console.time('fetch user');
+    fetch('https://api.github.com/users/DMcCal79')
+      .then(blob => blob.json())
+      .then(data => {
+        console.timeEnd('fetch user');
+        console.log(data);
+      });
+    // table
+    console.table(dogs);  
 
   </script>
 </body>
